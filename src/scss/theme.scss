@@ -1,0 +1,16 @@
+@use 'variables' as vars;
+
+html,
+body {
+  margin: 0;
+}
+
+html {
+  font-size: vars.$font-size;
+}
+
+body {
+  font-family: vars.$font-family;
+  font-weight: vars.$font-weight;
+  font-size: 100%;
+}
