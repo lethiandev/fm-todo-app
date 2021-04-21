@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import App from '@/App.vue'
 
-test('App should work', () => {
+test('App should instance', () => {
   const wrapper = shallowMount(App)
-  expect(wrapper.text()).toMatch(`Welcome to Your Vue.js + TypeScript App`)
+  expect(wrapper.exists()).toBeTruthy()
 })

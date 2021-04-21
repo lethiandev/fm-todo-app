@@ -1,4 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <h1>Welcome to Your Vue.js + TypeScript App</h1>
+  <HomePage />
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import HomePage from './pages/HomePage.vue'
+
+export default defineComponent({
+  components: {
+    HomePage,
+  },
+})
+</script>
