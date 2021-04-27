@@ -6,10 +6,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useStore } from 'vuex'
+
+import sampleTodos from '@/data/sampleTodos'
 
 export default defineComponent({
   name: 'HomePage',
   setup() {
+    const store = useStore()
+    store.commit('setTodos', sampleTodos)
+
     return {}
   },
 })
