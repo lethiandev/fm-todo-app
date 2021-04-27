@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createLogger, createStore } from 'vuex'
 import entitify from '@/utils/entitify'
 import Todo from '@/models/Todo'
 
@@ -23,4 +23,5 @@ export default createStore<State>({
     },
   },
   modules: {},
+  plugins: [createLogger()],
 })
