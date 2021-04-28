@@ -1,27 +1,10 @@
-import { createLogger, createStore } from 'vuex'
-import entitify from '@/utils/entitify'
-import Todo from '@/models/Todo'
+import { createLogger, createStore, Plugin } from 'vuex'
+import * as todo from './todo'
 
-export interface State {
-  todos: Record<string, Todo>
-}
+export const plugins: Plugin<todo.State>[] =
+  process.env.NODE_ENV === 'production' ? [] : [createLogger()]
 
-export default createStore<State>({
-  state: {
-    todos: {},
-  },
-  mutations: {
-    setTodos(state, todos: Todo[]) {
-      state.todos = entitify(todos)
-    },
-  },
-  actions: {},
-  getters: {
-    getAllTodos(state) {
-      const items = Object.values(state.todos)
-      return items.sort((a, b) => a.order - b.order)
-    },
-  },
-  modules: {},
-  plugins: [createLogger()],
+export default createStore<todo.State>({
+  ...todo,
+  plugins,
 })
