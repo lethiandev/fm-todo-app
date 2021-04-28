@@ -1,3 +1,13 @@
+$theme-map-dark: (
+  --body-background: hsl(235, 21%, 11%),
+  --text-color: hsl(236, 33%, 92%),
+);
+
+$theme-map-light: (
+  --body-background: hsl(0, 0%, 98%),
+  --text-color: hsl(235, 19%, 35%),
+);
+
 $font-family: 'Josefin Sans', sans-serif;
 $font-weight: 400;
 $font-size: 18px;
