@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue'
 import { useStore } from 'vuex'
 
-import sampleTodos from '@/data/sampleTodos'
+import sampleTodos from './sampleTodos'
 
 export default defineComponent({
   name: 'HomePage',
