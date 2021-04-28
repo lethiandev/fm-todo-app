@@ -1,10 +1,12 @@
 import { createLogger, createStore, Plugin } from 'vuex'
 import * as todo from './todo'
 
-export const plugins: Plugin<todo.State>[] =
+export type State = todo.State
+
+export const plugins: Plugin<State>[] =
   process.env.NODE_ENV === 'production' ? [] : [createLogger()]
 
-export default createStore<todo.State>({
+export default createStore<State>({
   ...todo,
   plugins,
 })
