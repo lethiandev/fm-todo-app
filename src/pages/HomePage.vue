@@ -1,5 +1,6 @@
 <template>
-  <main :class="$style.container">
+  <TheHeader />
+  <main :class="$style.containerMain">
     <h1>Hello from HomePage.vue!</h1>
   </main>
 </template>
@@ -8,10 +9,15 @@
 import { defineComponent } from 'vue'
 import { useStore } from 'vuex'
 
+import TheHeader from '@/components/TheHeader.vue'
+
 import sampleTodos from './sampleTodos'
 
 export default defineComponent({
   name: 'HomePage',
+  components: {
+    TheHeader,
+  },
   setup() {
     const store = useStore()
     store.commit('setTodos', sampleTodos)
@@ -22,9 +28,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
-.container {
-  margin: 0 auto;
-  padding: 0 24px;
-  max-width: 540px;
+.container-main {
+  composes: container from '@/scss/layout.module.scss';
 }
 </style>
