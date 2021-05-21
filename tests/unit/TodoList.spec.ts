@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import TodoList from '@/components/TodoList.vue'
 import TodoListItem from '@/components/TodoListItem.vue'
 import Todo from '@/models/Todo'
@@ -26,14 +26,14 @@ const todos: Todo[] = [
 
 describe('TodoList.vue', () => {
   it('should instance', () => {
-    const wrapper = shallowMount(TodoList)
+    const wrapper = mount(TodoList)
 
     expect(wrapper.exists()).toBeTruthy()
     expect(wrapper.findAllComponents(TodoListItem).length).toEqual(0)
   })
 
   it('should display todo tasks', () => {
-    const wrapper = shallowMount(TodoList, {
+    const wrapper = mount(TodoList, {
       props: { todos },
     })
 

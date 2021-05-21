@@ -1,16 +1,27 @@
 <template>
-  <div :class="$style.todoList">
-    <TodoListItem v-for="todo of todos" :key="todo.id" :todo="todo" />
-  </div>
+  <VDraggable
+    item-key="id"
+    :class="$style.todoList"
+    :modelValue="todos"
+    :animation="250"
+  >
+    <template #item="{ element: todo }">
+      <TodoListItem :todo="todo" />
+    </template>
+  </VDraggable>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
+import VDraggable from 'vuedraggable'
 import TodoListItem from './TodoListItem.vue'
 import Todo from '@/models/Todo'
 
 export default defineComponent({
-  components: { TodoListItem },
+  components: {
+    VDraggable,
+    TodoListItem,
+  },
   props: {
     todos: {
       type: Array as PropType<Todo[]>,
